@@ -2,10 +2,14 @@
 import React, {useState} from 'react';
 import { gql, useQuery, useMutation } from '@apollo/client';
 import PeriqlesForm from 'periqles';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
+import js from 'react-syntax-highlighter/dist/esm/languages/prism/graphql';
+import {vscDarkPlus} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-// fragment variable name will be referenced in query
-// syntax: fragment [FRAGMENT_NAME] on [SCHEMA_TYPE_NAME]
-// [FRAGMENT_NAME] will replace fields in query below
+SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('js', js);
+
 export const USER_DATA = gql`
   fragment UserData on DemoUser {
     username
@@ -16,9 +20,7 @@ export const USER_DATA = gql`
     age
   }
 `;
-// query variable name will be passed into useQuery hook
-// spread fragment name where fields would go
-// reference fragment variable name after query definition
+
 export const GET_USER = gql`
   query DemoUser {
     demoUser {
@@ -28,7 +30,6 @@ export const GET_USER = gql`
   ${USER_DATA}
 `;
 
-// define AddUser mutation, return fields from successful mutation: username, email, gender, pizzaTopping, age
 export const ADD_USER = gql`
 mutation AddUser($input: AddUserInput!){
   addUser(input: $input){
@@ -39,31 +40,21 @@ mutation AddUser($input: AddUserInput!){
       age
     }
 }
-`
+`;
 
 const ApolloUserProfile = () => {
   const [updated, setUpdate] = useState(false);
-  // useQuery hook to call GET_USER query, returns object containing { data, loading, error }
   const {
     data,
     loading,
     error,
     refetch
   } = useQuery(GET_USER);
-  // addUser function is returned from useMutation hook given ADD_USER mutation string
   const [
     addUser,
-    respObj // can pull data, loading & error from this obj
+    respObj
    ] = useMutation(
      ADD_USER,
-    //  {
-    //   onCompleted({ addUser }) { // callback on successful completion of mutation
-    //     refetch(GET_USER);
-    //   },
-    //   onError(error) {
-    //     console.log('useMutation onError:', error);
-    //   }
-    // }
   );
 
   const specifications: PeriqlesSpecifications = {
@@ -73,21 +64,21 @@ const ApolloUserProfile = () => {
         element: 'radio',
         label: 'Gender',
         options: [
-          {label: <span style={{color:'green'}}>non-binary</span>, value: 'NON_BINARY'},
-          {label: <span style={{color:'blue'}}>male</span>, value: 'MALE'},
-          {label: <span style={{color:'red'}}>female</span>, value: 'FEMALE'},
+          {label: 'Non-binary', value: 'NON_BINARY'},
+          {label: 'Male', value: 'MALE'},
+          {label: 'Female', value: 'FEMALE'},
         ],
       },
       pizzaTopping: {
         label: 'Favorite pizza topping:',
         element: 'select',
         options: [
-          {label: 'buffalo chicken', value: 'BUFFALO_CHICKEN'},
-          {label: 'pepperoni', value: 'PEPPERONI'},
-          {label: "meat lovers'", value: 'MEATLOVERS'},
-          {label: 'eggplant parmesan', value: 'EGGPLANT_PARM'},
-          {label: 'olives', value: 'OLIVES'},
-          {label: 'hawaiian', value: 'HAWAIIAN'},
+          {label: 'Buffalo chicken', value: 'BUFFALO_CHICKEN'},
+          {label: 'Pepperoni', value: 'PEPPERONI'},
+          {label: 'Meat lovers', value: 'MEATLOVERS'},
+          {label: 'Eggplant parmesan', value: 'EGGPLANT_PARM'},
+          {label: 'Olives', value: 'OLIVES'},
+          {label: 'Hawaiian', value: 'HAWAIIAN'},
         ],
       },
     },
@@ -116,6 +107,59 @@ const ApolloUserProfile = () => {
   }
  
     return (
+<<<<<<< HEAD
+      <section className="Demo">
+        <section className="UserProfile">
+            <PeriqlesForm
+              mutationName={'AddUser'}
+              callbacks={{onSuccess, onFailure}}
+              specifications={specifications}
+              args={args}
+              useMutation={addUser}
+            />
+            <main className="UserProfile-main">
+                <h2>Most Recently Added User</h2>
+                {loading ? <p>Loading data...</p> : null}
+                {error ? <p>ERROR: {JSON.stringify(error)}</p> : null}
+                {data && data.demoUser ? renderUser(data.demoUser): <p>Sign up...</p>}
+            </main>
+          </section>
+          <section className="CodeDemo">
+          <h1>Apollo Code Examples</h1>
+          <section className="Codeblocks">
+            <section className="SchemaCode">
+              <h3>Mutation Schema</h3>
+              <SyntaxHighlighter language="js" style={vscDarkPlus} showLineNumbers={true} codeTagProps={{style: {fontSize: "inherit"}}} customStyle={{fontSize: 18}}>
+                {"mutation AddUser($input: AddUserInput!){\n"+
+                "  addUser(input: $input) {\n"+
+                "    username\n"+
+                "    password\n"+
+                "    email\n"+
+                "    gender\n"+
+                "    pizzaTopping\n"+
+                "    age\n"+
+                "  }\n"+
+                "}"}
+              </SyntaxHighlighter>
+            </section>
+            <section className="PeriqlesCode">
+              <h3>PeriqlesForm Tag</h3>
+              <SyntaxHighlighter language="jsx" style={vscDarkPlus} showLineNumbers={true} codeTagProps={{style: {fontSize: "inherit"}}} customStyle={{fontSize: 18}}>
+                {"<PeriqlesForm\n"+
+                "  mutationName={'AddUser'}\n"+
+                "  callbacks={{onSuccess, onFailure}}\n"+
+                "  specifications={specifications}\n"+
+                "  args={args}\n"+
+                "  useMutation={addUser}\n"+
+              "/>\n"+
+              "\n"+
+              "\n"}
+              </SyntaxHighlighter>
+            </section>
+          </section>
+      </section>
+    </section>
+=======
       <section className="UserProfile">
           <PeriqlesForm
             mutationName={'AddUser'}
@@ -131,6 +175,7 @@ const ApolloUserProfile = () => {
               {data && data.demoUser ? renderUser(data.demoUser): <p>Sign up...</p>}
           </main>
         </section>
+>>>>>>> b655356507fdda80b23b9da49fb52ab75a05c4e0
     );
 };
 
