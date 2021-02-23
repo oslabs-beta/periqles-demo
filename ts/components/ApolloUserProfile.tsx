@@ -107,7 +107,6 @@ const ApolloUserProfile = () => {
   }
  
     return (
-<<<<<<< HEAD
       <section className="Demo">
         <section className="UserProfile">
             <PeriqlesForm
@@ -159,23 +158,6 @@ const ApolloUserProfile = () => {
           </section>
       </section>
     </section>
-=======
-      <section className="UserProfile">
-          <PeriqlesForm
-            mutationName={'AddUser'}
-            callbacks={{onSuccess, onFailure}}
-            specifications={specifications}
-            args={args}
-            useMutation={addUser}
-          />
-          <main className="UserProfile-main">
-              <h2>Most Recently Added User</h2>
-              {loading ? <p>Loading data...</p> : null}
-              {error ? <p>ERROR: {error.message}</p> : null}
-              {data && data.demoUser ? renderUser(data.demoUser): <p>Sign up...</p>}
-          </main>
-        </section>
->>>>>>> b655356507fdda80b23b9da49fb52ab75a05c4e0
     );
 };
 
