@@ -1,6 +1,3 @@
-const  { ApolloServer } = require('apollo-server-express');
-const apolloResolvers = require('./apolloResolvers.js');
-const typeDefs = require('./apolloSchema.js');
 const express = require('express');
 const {graphqlHTTP}  = require('express-graphql');
 const path = require('path');
@@ -9,25 +6,16 @@ const {schema} = require('./data/schema/index.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-// var corsOptions = {
-//   origin: 'http://localhost:8080', // TODO
-// };
 
-// app.use(cors(corsOptions));
 app.use(cors());
 
 app.use('*', (req, res, next) => {
-  // console.log('Incoming request:', req.method, req.baseUrl);
+  console.log('Incoming request:', req.method, req.baseUrl);
   return next();
 });
 
-
-// Serve static assets
-// app.use(express.static(path.join(__dirname, '/public')));
-
 // only needed when in production mode
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === undefined) {
-  // app.use('/', express.static(path.join(__dirname, 'public/*')));
   app.get('/', (req, res) => {
     return res.status(200)
           .sendFile(path.join(__dirname, '/public/index.html'));
@@ -47,25 +35,24 @@ app.post(
   '/graphql',
   graphqlHTTP({
     schema: schema,
-    pretty: true,
+    pretty: true,   // pretty-print JSON responses
   }),
 );
 
-// Send a GET to /graphql to use GraphiQL
-app.get(
-  '/graphql',
-  graphqlHTTP({
-    schema: schema,
-    pretty: true,
-    graphiql: true,
-  }),
-);
+// Send a GET to /graphql to use GraphiQL in the dev environment
+if (process.env.NODE_ENV === 'development'){
+  app.get(
+    '/graphql',
+    graphqlHTTP({
+      schema: schema,
+      pretty: true,
+      graphiql: true,
+    }),
+  );
+}
 
 app.use(express.json());
-// Apollo endpoint
-// const apolloEndpoint = '/graphql/apollo';
-// const server = new ApolloServer({ typeDefs, apolloResolvers });
-// server.applyMiddleware({ app, apolloEndpoint });
+
 //ERROR HANDLING
 app.use((err, req, res, next) => {
   const error = {
