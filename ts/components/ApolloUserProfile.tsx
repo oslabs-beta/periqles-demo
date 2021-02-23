@@ -117,7 +117,6 @@ const ApolloUserProfile = () => {
  
     return (
       <section className="UserProfile">
-          {/*removed environment & args props */}
           <PeriqlesForm
             mutationName={'AddUser'}
             callbacks={{onSuccess, onFailure}}
@@ -128,7 +127,7 @@ const ApolloUserProfile = () => {
           <main className="UserProfile-main">
               <h2>Most Recently Added User</h2>
               {loading ? <p>Loading data...</p> : null}
-              {error ? <p>ERROR: {JSON.stringify(error)}</p> : null}
+              {error ? <p>ERROR: {error.message}</p> : null}
               {data && data.demoUser ? renderUser(data.demoUser): <p>Sign up...</p>}
           </main>
         </section>
