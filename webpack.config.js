@@ -34,7 +34,7 @@ module.exports = {
       {
         test: /\.(t|j)sx?$/,
         enforce: 'pre',
-        use: ['babel-loader', 'source-map-loader'],
+        loader: 'babel-loader',
         exclude: /node_modules/,
       },
       {
