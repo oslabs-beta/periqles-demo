@@ -1,7 +1,6 @@
-/* eslint-disable flowtype/object-type-delimiter */
 import * as React from 'react';
 
-interface AuthorCardProps {
+interface CreatorCardProps {
   key: number;
   author: {
     img: string;
@@ -10,7 +9,7 @@ interface AuthorCardProps {
   }
 }
 
-const CreatorCard = ({author}: AuthorCardProps): JSX.Element => {
+const CreatorCard = ({author}: CreatorCardProps): JSX.Element => {
   const {img, name, link} = author;
 
   return (
@@ -18,8 +17,7 @@ const CreatorCard = ({author}: AuthorCardProps): JSX.Element => {
       {/* <img className="author-img" 
       src={img} 
       alt={name}
-      width="75"
-      height="75"></img> */}
+      width="75"></img> */}
       <a href={link} className="author-link">{name}</a>
     </p>
   );

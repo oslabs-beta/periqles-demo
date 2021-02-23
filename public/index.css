@@ -36,6 +36,7 @@ button {
   margin: 0;
   padding: 0;
   border: 0;
+  width: 100%;
   background: none;
   font-size: 100%;
   vertical-align: baseline;
@@ -104,7 +105,8 @@ a:visited {
 }
 
 #periqles-logo {
-  width: 500px;
+  width: 90%;
+  max-width: 500px;
 }
 
 .LinksSection {
@@ -112,7 +114,7 @@ a:visited {
   color: white;
   padding: 30px;
   width: 100vw;
-  height: 400px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +137,7 @@ a:visited {
 .Demo {
   width: 100%;
   margin: 50px auto;
-  padding: 30px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -180,21 +182,18 @@ a:visited {
 }
 
 .Codeblocks {
-  height: 440px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   width: 100%;
-  justify-content: center;
+  padding: 10px 10px 20px 10px;
 }
 
-.SchemaCode {
-  margin-right: 8em;
-  display: flex;
-  flex-direction: column;
-}
-
-.PeriqlesCode {
-  display: flex;
-  flex-direction: column;
+.SchemaCode, .PeriqlesCode {
+  width: 90%;
+  max-width: 750px;
+  overflow-x: auto;
 }
 
 footer {
@@ -282,10 +281,18 @@ input:checked + .slider:before {
 }
 
 @media (min-width: 700px) {
+  button {
+    width: fit-content;
+  }
+
   .LogoSection, .LinksSection {
     flex-direction: row;
     justify-content: space-evenly;
     padding: 30px 15%;
+  }
+
+  .Demo {
+    padding: 30px;
   }
 
   #periqles-logo {
@@ -317,6 +324,7 @@ input:checked + .slider:before {
 
   .PeriqlesForm {
     width: 500px;
+    margin-right: 30px;
   }
 
   .UserProfile-main {
@@ -327,5 +335,18 @@ input:checked + .slider:before {
     text-align: left;
     padding: 30px 15%;
   }
+}
 
+@media (min-width: 1690px) {
+  .Codeblocks {
+    height: 440px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px 30px 60px 30px;
+  }
+
+  .SchemaCode {
+    margin-right: 30px;
+  }
 }

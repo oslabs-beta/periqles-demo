@@ -10,7 +10,7 @@ import { cache } from '../apolloCache';
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   cache,
-  uri: 'http://localhost:3000/graphql'
+  uri: 'https://periqles.herokuapp.com/graphql'
 });
 
 const Demo = (): JSX.Element => {

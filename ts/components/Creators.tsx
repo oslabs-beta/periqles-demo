@@ -1,5 +1,5 @@
 import * as React from 'react';
-import AuthorCard from './CreatorCard';
+import CreatorCard from './CreatorCard';
 
 const Creators = (): JSX.Element => {
   const authors = [
@@ -29,7 +29,7 @@ const Creators = (): JSX.Element => {
     <footer>
       <h2>Creators</h2>
       <div className="creators">
-        {authors.map((author, index) => <AuthorCard key={index} author={author}/>)}
+        {authors.map((author, index) => <CreatorCard key={index} author={author}/>)}
       </div>
     </footer>
   );
