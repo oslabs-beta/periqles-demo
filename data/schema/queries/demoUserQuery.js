@@ -1,4 +1,3 @@
-// import {GraphQLString} from 'graphql';
 const {demoGraphQLUser} = require('../nodes.js');
 const {
   DemoUser,
@@ -8,9 +7,6 @@ const {
 
 const demoUserQuery = {
   type: demoGraphQLUser,
-  // args: {
-  //   demoUserId: {type: GraphQLString},
-  // },
   resolve: (root) => {
 
     getAllUsers();
