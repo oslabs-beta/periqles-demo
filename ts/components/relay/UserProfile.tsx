@@ -166,7 +166,7 @@ const UserProfile = (): JSX.Element => {
               </SyntaxHighlighter>
           </section>
           <section className="PeriqlesCode">
-            <h3>Periqles Component</h3>
+            <h3>PeriqlesForm Tag</h3>
             <SyntaxHighlighter language="jsx" style={vscDarkPlus} showLineNumbers={true} codeTagProps={{style: {fontSize: "inherit"}}} customStyle={{fontSize: 18}}>
               {"<PeriqlesForm\n"+
               "  environment={modernEnvironment}\n"+
@@ -175,7 +175,9 @@ const UserProfile = (): JSX.Element => {
               "  specifications={specifications}\n"+
               "  args={args}\n"+
               "  callbacks={{onSuccess, onFailure}}\n"+
-            "/>"}
+            "/>\n"+
+            "\n"+
+            "\n"}
             </SyntaxHighlighter>
           </section>
         </section>
