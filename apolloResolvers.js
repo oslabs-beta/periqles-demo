@@ -15,7 +15,6 @@ module.exports = {
     //   age,
     // }, { database }) => database.addUser(username, password, email, gender, pizzaTopping, age),
     addUser: (_, { input }, ___) => {
-      console.log('addUser input in resolver:', input);
       return addUser(input);
     },
   },

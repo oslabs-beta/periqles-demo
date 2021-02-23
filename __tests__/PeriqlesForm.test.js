@@ -28,10 +28,6 @@ const defaultProps = {
   buttonText: 'Submit',
 };
 
-// console.log('This is the App Component: ', App);
-// console.log('This is the PF Component: ', PeriqlesForm);
-// console.log('This is the UP Component: ', UserProfile);
-
 describe('App', () => {
   test('renders App component', () => {
     render(<App />);

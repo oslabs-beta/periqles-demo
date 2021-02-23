@@ -41,16 +41,14 @@ function commit(
   pizzaTopping,
   age,
 ) {
-  // console.log('commit called');
   const input = {
-    // add input values listed above to an input object
     username,
     password,
     email,
     gender,
     pizzaTopping,
     age,
-    clientMutationId: `${tempID++}`, // why is this unique?
+    clientMutationId: `${tempID++}`,
   };
 
   return commitMutation(environment, {
@@ -60,9 +58,7 @@ function commit(
     },
     updater: (store) => {
       // get addUser payload
-      const payload = store.getRootField('addUser'); // TODO
-      // get userId from addUser payload
-      console.log('payload:', payload);
+      const payload = store.getRootField('addUser');
       const newUserId = payload.getValue('userId');
       const newUsername = payload.getValue('username');
       const newPassword = payload.getValue('password');
@@ -70,7 +66,6 @@ function commit(
       const newGender = payload.getValue('gender');
       const newPizzaTopping = payload.getValue('pizzaTopping');
       const newAge = payload.getValue('age');
-      // console.log('newUserId', newUserId);
       // return newUserId;
       // sharedUpdater(store, demoUser);
     },

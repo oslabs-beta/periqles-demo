@@ -21,23 +21,19 @@ const demoUsersById = new Map([
 // Seed initial user
 let nextUserId = 1;
 
-//getDemoUser and getDemoUserOrThrow functions
 function getDemoUser(userId) {
   return demoUsersById.get(userId);
 }
 function getDemoUserOrThrow(userId) {
-  // console.log('hello from getDemoUserOrThrow');
   const demoUser = getDemoUser(userId);
-
   if (!demoUser) {
     throw new Error(`Invariant exception, DemoUser ${userId} not found`);
   }
-  console.log('returning from getDemoUserOrThrow:', demoUser);
+
   return demoUser;
 }
 
 function getLastDemoUserOrThrow() {
-  // console.log('hello from getDemoUserOrThrow');
   let lastDemoUser;
   const demoUsersIterator = demoUsersById[Symbol.iterator]();
 
@@ -45,12 +41,10 @@ function getLastDemoUserOrThrow() {
     lastDemoUser = userItem[1];
   }
 
-  console.log('lastDemoUser', lastDemoUser);
   return lastDemoUser;
 }
 
 function getAllUsers() {
-  // console.log('hello from getDemoUserOrThrow');
   let demoUserList = [];
   const demoUsersIterator = demoUsersById[Symbol.iterator]();
 
@@ -58,7 +52,6 @@ function getAllUsers() {
     demoUserList.push(userItem[1]);
   }
 
-  console.log('demoUserList', demoUserList);
   return demoUserList;
 }
 
@@ -82,7 +75,6 @@ function addUser({
     age,
   );
   demoUsersById.set(newUser.userId, newUser);
-  console.log('newUser is', newUser);
   return newUser;
 }
 

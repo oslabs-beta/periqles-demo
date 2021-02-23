@@ -16,20 +16,17 @@ const PORT = process.env.PORT || 3000;
 // app.use(cors(corsOptions));
 app.use(cors());
 
-// console.log('checking environment variables', process.env.NODE_ENV);
 app.use('*', (req, res, next) => {
-  console.log('Incoming request:', req.method, req.baseUrl);
+  // console.log('Incoming request:', req.method, req.baseUrl);
   return next();
 });
 
 
-// console.log('assets path', __dirname + path.resolve('/', 'public', '/', 'assets'));
 // Serve static assets
 // app.use(express.static(path.join(__dirname, '/public')));
 
 // only needed when in production mode
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === undefined) {
-  console.log('Serving /');
   // app.use('/', express.static(path.join(__dirname, 'public/*')));
   app.get('/', (req, res) => {
     return res.status(200)

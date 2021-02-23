@@ -12,7 +12,7 @@ const demoUserQuery = {
   //   demoUserId: {type: GraphQLString},
   // },
   resolve: (root) => {
-    // console.log('this is the demoUserId from resolver ', demoUserId);
+
     getAllUsers();
     return getLastDemoUserOrThrow();
   },

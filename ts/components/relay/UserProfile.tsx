@@ -8,7 +8,6 @@ interface QueryResponse {
 
 const UserProfile = (): JSX.Element => {
   const [updated, setUpdate] = useState(false);
-  console.log('Rendering UserProfile');
 
   async function fetchQuery(operation, variables): Promise<{}> {
     const response = await fetch('/graphql', {
@@ -114,7 +113,6 @@ const UserProfile = (): JSX.Element => {
             }
             if (props && props.demoUser) {
               const {demoUser} = props;
-              console.log('Rendering DemoUser query response...');
               return (
                 <ul>
                   <li className="userDisplayItem">

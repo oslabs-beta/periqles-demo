@@ -58,7 +58,6 @@ const ApolloUserProfile = () => {
      ADD_USER,
     //  {
     //   onCompleted({ addUser }) { // callback on successful completion of mutation
-    //     console.log('onCompleted executes');
     //     refetch(GET_USER);
     //   },
     //   onError(error) {
