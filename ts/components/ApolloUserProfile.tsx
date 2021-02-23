@@ -96,68 +96,68 @@ const ApolloUserProfile = () => {
   
   const renderUser = (demoUser) => {
     return (
-      <ul>
-        <li className="userDisplayItem">Username: {demoUser.username}</li>
-        <li className="userDisplayItem">Email: {demoUser.email}</li>
-        <li className="userDisplayItem">Gender: {demoUser.gender}</li>
-        <li className="userDisplayItem">Favorite Pizza Topping: {demoUser.pizzaTopping}</li>
-        <li className="userDisplayItem">Age: {demoUser.age}</li>
-      </ul>
+      <div>
+        <p><label>Username:</label> {demoUser.username}</p>
+        <p><label>Email:</label> {demoUser.email}</p>
+        <p><label>Gender:</label> {demoUser.gender}</p>
+        <p><label>Favorite Pizza Topping:</label> {demoUser.pizzaTopping}</p>
+        <p><label>Age:</label> {demoUser.age}</p>
+      </div>
     )
   }
  
     return (
-      <section className="Demo">
-        <section className="UserProfile">
-            <PeriqlesForm
-              mutationName={'AddUser'}
-              callbacks={{onSuccess, onFailure}}
-              specifications={specifications}
-              args={args}
-              useMutation={addUser}
-            />
-            <main className="UserProfile-main">
-                <h2>Most Recently Added User</h2>
-                {loading ? <p>Loading data...</p> : null}
-                {error ? <p>ERROR: {JSON.stringify(error)}</p> : null}
-                {data && data.demoUser ? renderUser(data.demoUser): <p>Sign up...</p>}
-            </main>
+      <div>
+      <section className="UserProfile">
+          <PeriqlesForm
+            mutationName={'AddUser'}
+            callbacks={{onSuccess, onFailure}}
+            specifications={specifications}
+            args={args}
+            useMutation={addUser}
+          />
+          <main className="UserProfile-main">
+              <h2>Most Recently Added User</h2>
+              {loading ? <p>Loading data...</p> : null}
+              {error ? <p>ERROR: {JSON.stringify(error)}</p> : null}
+              {data && data.demoUser ? renderUser(data.demoUser): <p>Sign up...</p>}
+          </main>
+        </section>
+        <section className="CodeDemo">
+        <h1>Apollo Code Examples</h1>
+        <section className="Codeblocks">
+          <section className="SchemaCode">
+            <h3>Mutation Schema</h3>
+            <SyntaxHighlighter language="js" style={vscDarkPlus} showLineNumbers={true} codeTagProps={{style: {fontSize: "inherit"}}} customStyle={{fontSize: 18}}>
+              {"mutation AddUser($input: AddUserInput!){\n"+
+              "  addUser(input: $input) {\n"+
+              "    username\n"+
+              "    password\n"+
+              "    email\n"+
+              "    gender\n"+
+              "    pizzaTopping\n"+
+              "    age\n"+
+              "  }\n"+
+              "}"}
+            </SyntaxHighlighter>
           </section>
-          <section className="CodeDemo">
-          <h1>Apollo Code Examples</h1>
-          <section className="Codeblocks">
-            <section className="SchemaCode">
-              <h3>Mutation Schema</h3>
-              <SyntaxHighlighter language="js" style={vscDarkPlus} showLineNumbers={true} codeTagProps={{style: {fontSize: "inherit"}}} customStyle={{fontSize: 18}}>
-                {"mutation AddUser($input: AddUserInput!){\n"+
-                "  addUser(input: $input) {\n"+
-                "    username\n"+
-                "    password\n"+
-                "    email\n"+
-                "    gender\n"+
-                "    pizzaTopping\n"+
-                "    age\n"+
-                "  }\n"+
-                "}"}
-              </SyntaxHighlighter>
-            </section>
-            <section className="PeriqlesCode">
-              <h3>PeriqlesForm Tag</h3>
-              <SyntaxHighlighter language="jsx" style={vscDarkPlus} showLineNumbers={true} codeTagProps={{style: {fontSize: "inherit"}}} customStyle={{fontSize: 18}}>
-                {"<PeriqlesForm\n"+
-                "  mutationName={'AddUser'}\n"+
-                "  callbacks={{onSuccess, onFailure}}\n"+
-                "  specifications={specifications}\n"+
-                "  args={args}\n"+
-                "  useMutation={addUser}\n"+
-              "/>\n"+
-              "\n"+
-              "\n"}
-              </SyntaxHighlighter>
-            </section>
+          <section className="PeriqlesCode">
+            <h3>PeriqlesForm Tag</h3>
+            <SyntaxHighlighter language="jsx" style={vscDarkPlus} showLineNumbers={true} codeTagProps={{style: {fontSize: "inherit"}}} customStyle={{fontSize: 18}}>
+              {"<PeriqlesForm\n"+
+              "  mutationName={'AddUser'}\n"+
+              "  callbacks={{onSuccess, onFailure}}\n"+
+              "  specifications={specifications}\n"+
+              "  args={args}\n"+
+              "  useMutation={addUser}\n"+
+            "/>\n"+
+            "\n"+
+            "\n"}
+            </SyntaxHighlighter>
           </section>
-      </section>
+        </section>
     </section>
+    </div>
     );
 };
 

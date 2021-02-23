@@ -136,7 +136,7 @@ a:visited {
 
 .Demo {
   width: 100%;
-  margin: 50px auto;
+  margin: 0 auto 50px auto;
   padding: 10px;
   text-align: center;
 }
@@ -161,6 +161,13 @@ a:visited {
 .UserProfile-main {
   text-align:left;
   margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 4%;
+}
+
+.UserProfile-main label {
+  font-weight: bold;
 }
 
 .CodeDemo {
@@ -169,7 +176,7 @@ a:visited {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2.5em;
+  margin-top: 75px;
 }
 
 .CodeDemo h1 {

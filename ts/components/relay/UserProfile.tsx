@@ -88,7 +88,7 @@ const UserProfile = (): JSX.Element => {
   const args = {clientMutationId: '0000'};
 
   return (
-    <section className="Demo">
+    <div>
       <section className="UserProfile">
           <PeriqlesForm
             environment={modernEnvironment}
@@ -122,19 +122,13 @@ const UserProfile = (): JSX.Element => {
               if (props && props.demoUser) {
                 const {demoUser} = props;
                 return (
-                  <ul>
-                    <li className="userDisplayItem">
-                      Username: {demoUser.username}
-                    </li>
-                    <li className="userDisplayItem">Email: {demoUser.email}</li>
-                    <li className="userDisplayItem">
-                      Gender: {demoUser.gender}
-                    </li>
-                    <li className="userDisplayItem">
-                      Favorite Pizza Topping: {demoUser.pizzaTopping}
-                    </li>
-                    <li className="userDisplayItem">Age: {demoUser.age}</li>
-                  </ul>
+                  <div>
+                    <p><label>Username:</label> {demoUser.username}</p>
+                    <p><label>Email:</label> {demoUser.email}</p>
+                    <p><label>Gender:</label> {demoUser.gender}</p>
+                    <p><label>Favorite Pizza Topping:</label> {demoUser.pizzaTopping}</p>
+                    <p><label>Age:</label> {demoUser.age}</p>
+                  </div>
                 );
               } else if (error) {
                 console.error(error);
@@ -182,7 +176,7 @@ const UserProfile = (): JSX.Element => {
           </section>
         </section>
       </section>
-    </section>
+    </div>
   );
 };
 
