@@ -11,7 +11,7 @@
     "quick-start": "NODE_ENV='production' webpack & node -r dotenv/config server.js",
     "build:relay": "relay-compiler --src ./ts/ --schema ./data/schema.graphql --artifactDirectory ./__generated__/relay --extensions js jsx ts tsx --exclude ./__generated__/",
     "update-schema": "babel-node ./scripts/updateSchema.js",
-    "install-periqles": "npm install ~/periqles-1.0.0.tgz",
+    "install-periqles": "npm install ~/periqles-2.0.0.tgz",
     "lint": "eslint .",
     "test": "jest --verbose",
     "jest": "node --experimental-vm-modules node_modules/.bin/jest"
@@ -44,7 +44,7 @@
     "graphql": "^15.4.0",
     "graphql-relay": "^0.6.0",
     "graphql-tag": "^2.11.0",
-    "periqles": "^1.0.0",
+    "periqles": "^2.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-relay": "^10.1.0",
