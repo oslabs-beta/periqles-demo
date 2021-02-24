@@ -44,7 +44,7 @@
     "graphql": "^15.4.0",
     "graphql-relay": "^0.6.0",
     "graphql-tag": "^2.11.0",
-    "periqles": "^2.0.0",
+    "periqles": "file:../../../../periqles-2.0.0.tgz",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-relay": "^10.1.0",

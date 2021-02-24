@@ -158,6 +158,11 @@ a:visited {
   border-radius: 10px;
 }
 
+/* one method to hide label text */
+/* .PeriqlesForm label:not(.periqles-radio-option-label) {
+  color:white;
+} */
+
 .UserProfile-main {
   text-align:left;
   margin-top: 20px;
