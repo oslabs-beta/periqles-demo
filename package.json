@@ -1,7 +1,8 @@
 {
   "private": true,
   "engines": {
-    "node": ">=12.18.x"
+    "node": "12.x",
+    "npm": "6.x"
   },
   "scripts": {
     "tsc": "tsc --watch",
