@@ -216,10 +216,12 @@ footer {
 
 h1 {
   font-size: 36px;
+  line-height: 45px;
 }
 
 h2 {
   font-size: 28px;
+  line-height: 35px;
 }
 
 /* Relay/Apollo toggle */

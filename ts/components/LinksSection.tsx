@@ -10,13 +10,13 @@ const LinksSection = (): JSX.Element => {
         <br/>Periqles abstracts away the dirty work of form creation — with override switches built in for the design-conscious developer — so you can be free to focus on business logic.
       </h3>
       <div className="repo-logos">
-        <a href="">
+        <a href="https://www.npmjs.com/package/periqles">
           <img className="marketing-logo" 
           src="../../public/assets/npm-logo-black.png" 
           alt="NPM" 
           width="100"/>
         </a>
-        <a href="https:\/\/github.com/oslabs-beta/periqles">
+        <a href="https://github.com/oslabs-beta/periqles">
           <img className="marketing-logo" 
           src="../../public/assets/Github-Mark-64px.png" 
           alt="Github" 
