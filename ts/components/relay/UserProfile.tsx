@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {QueryRenderer, graphql} from 'react-relay';
 import {Environment, Network, RecordSource, Store} from 'relay-runtime';
-// import PeriqlesForm from 'periqles';
-import PeriqlesForm from '../src/PeriqlesForm';
+import PeriqlesForm from 'periqles';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import js from 'react-syntax-highlighter/dist/esm/languages/prism/graphql';
@@ -54,17 +53,17 @@ const UserProfile = (): JSX.Element => {
   const specifications: PeriqlesSpecifications = {
     header: 'Sign Up',
     fields: {
-      // gender: {
-      //   element: 'radio',
-      //   label: 'Gender',
-      //   options: [
-      //     {label: 'Non-binary', value: 'NON_BINARY'},
-      //     {label: 'Male', value: 'MALE'},
-      //     {label: 'Female', value: 'FEMALE'},
-      //   ],
-      // },
+      gender: {
+        element: 'radio',
+        label: 'Gender',
+        options: [
+          {label: 'Non-binary', value: 'NON_BINARY'},
+          {label: 'Male', value: 'MALE'},
+          {label: 'Female', value: 'FEMALE'},
+        ],
+      },
       pizzaTopping: {
-        label: 'Favorite pizza topping:',
+        label: 'Favorite pizza topping',
         element: 'select',
         options: [
           {label: 'Buffalo chicken', value: 'BUFFALO_CHICKEN'},

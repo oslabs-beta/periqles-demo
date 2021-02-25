@@ -8,9 +8,15 @@ import {
 } from '@apollo/client';
 import { cache } from '../apolloCache';
 
+let URI = '';
+if (process.env.NODE_ENV === 'development') {
+  URI = 'http://localhost:8080/graphql';
+}
+else URI = 'https://periqles.herokuapp.com/graphql';
+
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   cache,
-  uri: 'https://periqles.herokuapp.com/graphql'
+  uri: URI,
 });
 
 const Demo = (): JSX.Element => {
@@ -34,9 +40,10 @@ const Demo = (): JSX.Element => {
       </div>
       {relay
         ? <UserProfile />
-        : (<ApolloProvider client={client}>
+         : (<ApolloProvider client={client}>
               <ApolloUserProfile />
-            </ApolloProvider>)
+            </ApolloProvider>
+            )
       }
     </main>
   )
