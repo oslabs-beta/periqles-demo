@@ -38,6 +38,7 @@ const Demo = (): JSX.Element => {
         </label>
         Relay
       </div>
+      <p><small><i>This site is just for demonstration purposes. Please don't enter personal information.</i></small></p>
       {relay
         ? <UserProfile />
          : (<ApolloProvider client={client}>
